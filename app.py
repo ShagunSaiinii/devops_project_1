@@ -1,9 +1,9 @@
-FROM redhat/ubi8
-
-RUN yum install python3 -y
-
-RUN pip3 install flask
-
-COPY app.py /app.py
-
-CMD ["python3", "/app.py"]
+from flask import Flask
+app = Flask(__name__)
+@app.route("/info")
+def lwinfo():
+        return "i m Lw from India"
+@app.route("/phone")
+def lwphone():
+        return "9351009002"
+app.run(host="0.0.0.0")
